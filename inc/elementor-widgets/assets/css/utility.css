@@ -1,0 +1,39 @@
+/* -------------------------
+:: utility Class
+---------------------------- */
+.hostza-pt-100 {
+    padding-top: 100px;
+}
+.hostza-pt-80 {
+    padding-top: 80px;
+}
+.hostza-pt-70 {
+    padding-top: 70px;
+}
+.hostza-pt-60 {
+    padding-top: 60px;
+}
+.hostza-pt-50 {
+    padding-top: 50px;
+}
+.hostza-pt-30 {
+    padding-top: 30px;
+}
+.hostza-pb-100 {
+    padding-bottom: 100px;
+}
+.hostza-pb-80 {
+    padding-bottom: 80px;
+}
+.hostza-pb-70 {
+    padding-bottom: 70px;
+}
+.hostza-pb-60 {
+    padding-bottom: 60px;
+}
+.hostza-pb-50 {
+    padding-bottom: 50px;
+}
+.hostza-pb-30 {
+    padding-bottom: 30px;
+}
