@@ -34,7 +34,7 @@ class Hostza_Support_Section extends Widget_Base {
 	}
 
 	public function get_icon() {
-		return 'eicon-play-o';
+		return 'eicon-heart';
 	}
 
 	public function get_categories() {
@@ -128,49 +128,44 @@ class Hostza_Support_Section extends Widget_Base {
 				'label' => __( 'Big Title Color', 'hostza-companion' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .home_contact h2' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .dedicated_support .support_info h3' => 'color: {{VALUE}};',
 				],
 			]
         );
 
         $this->add_control(
-			'sub_title_col', [
-				'label' => __( 'Sub title Color', 'hostza-companion' ),
+			'text_col', [
+				'label' => __( 'Text Color', 'hostza-companion' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .home_contact p' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .dedicated_support .support_info p' => 'color: {{VALUE}};',
 				],
 			]
         );
 
         $this->add_control(
-			'btn_bg_col', [
-				'label' => __( 'Button BG Color', 'hostza-companion' ),
+			'btn_phn_col', [
+				'label' => __( 'Button & Phone Text Color', 'hostza-companion' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .home_contact .btn_1' => 'background: {{VALUE}};',
+					'{{WRAPPER}} .dedicated_support .support_info .get_started a' => 'background: {{VALUE}};',
+					'{{WRAPPER}} .dedicated_support .support_info .get_started .phone_num' => 'background: none; color: {{VALUE}};',
+					'{{WRAPPER}} .dedicated_support .support_info .get_started .boxed_btn_green:hover' => 'background: transparent; color: {{VALUE}} !important; border-color:{{VALUE}} ',
 				],
 			]
         );
 
         $this->add_control(
-			'btn_hov_bg_col', [
-				'label' => __( 'Button Hover Bg Color', 'hostza-companion' ),
+			'btn_phn_hover_col', [
+				'label' => __( 'Button & Phone Hover Color', 'hostza-companion' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .home_contact .btn_1:hover' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .dedicated_support .support_info .get_started .boxed_btn_green:hover' => 'background: transparent; color: {{VALUE}} !important; border-color:{{VALUE}} ',
+					'{{WRAPPER}} .dedicated_support .support_info .get_started .phone_num:hover' => 'color: {{VALUE}};',
 				],
 			]
         );
-        $this->add_control(
-			'bg_overlay_col', [
-				'label' => __( 'Bg Overlay Color', 'hostza-companion' ),
-				'type' => Controls_Manager::COLOR,
-				'selectors' => [
-					'{{WRAPPER}} .home_contact:after' => 'background: {{VALUE}};',
-				],
-			]
-        );
+
         $this->end_controls_section();
 
 	}

@@ -34,7 +34,7 @@ class Hostza_Prising_Area extends Widget_Base {
 	}
 
 	public function get_icon() {
-		return 'eicon-settings';
+		return 'eicon-price-table';
 	}
 
 	public function get_categories() {
@@ -196,7 +196,7 @@ class Hostza_Prising_Area extends Widget_Base {
                 'label' => __( 'Sub Title Color', 'hostza-companion' ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .team_area .section_title .sub_heading' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .prising_area .section_title h3' => 'color: {{VALUE}};',
                 ],
             ]
         );
@@ -205,13 +205,12 @@ class Hostza_Prising_Area extends Widget_Base {
                 'label' => __( 'Big Title Color', 'hostza-companion' ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .team_area .section_title h3' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .prising_area .section_title p' => 'color: {{VALUE}};',
                 ],
             ]
         );
-
         $this->add_control(
-            'member_styles_seperator',
+            'package_styles_seperator',
             [
                 'label' => esc_html__( 'Package Styles', 'hostza-companion' ),
                 'type' => Controls_Manager::HEADING,
@@ -219,38 +218,74 @@ class Hostza_Prising_Area extends Widget_Base {
             ]
         );
         $this->add_control(
-            'first_item_icon_col', [
-                'label' => __( 'First Item Icon Color', 'hostza-companion' ),
+            'item_icon_col_1', [
+                'label' => __( 'Item Icon Color 1', 'hostza-companion' ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .prising_area .col-xl-3:first-child i' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .prising_area .single_prising .prising_icon.blue i' => 'color: {{VALUE}};',
                 ],
             ]
         );
         $this->add_control(
-            'second_item_icon_col', [
-                'label' => __( 'Second Item Icon Color', 'hostza-companion' ),
+            'item_icon_col_2', [
+                'label' => __( 'Item Icon Color 2', 'hostza-companion' ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .prising_area .col-xl-3:nth-child(2) i' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .prising_area .single_prising .prising_icon.lite_blue i' => 'color: {{VALUE}};',
                 ],
             ]
         );
         $this->add_control(
-            'third_item_icon_col', [
-                'label' => __( 'Third Item Icon Color', 'hostza-companion' ),
+            'item_icon_col_3', [
+                'label' => __( 'Item Icon Color 3', 'hostza-companion' ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .prising_area .col-xl-3:nth-child(3) i' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .prising_area .single_prising .prising_icon.pink i' => 'color: {{VALUE}};',
                 ],
             ]
         );
         $this->add_control(
-            'fourth_item_icon_col', [
-                'label' => __( 'Fourth Item Icon Color', 'hostza-companion' ),
+            'item_icon_col_4', [
+                'label' => __( 'Item Icon Color 4', 'hostza-companion' ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .prising_area .col-xl-3:last-child i' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .prising_area .single_prising .prising_icon.yellow i' => 'color: {{VALUE}};',
+                ],
+            ]
+        );
+        $this->add_control(
+            'item_title_price_col', [
+                'label' => __( 'Item Title & Price Color', 'hostza-companion' ),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .prising_area .single_prising h3, .prising_area .single_prising .prise span' => 'color: {{VALUE}};',
+                ],
+            ]
+        );
+        $this->add_control(
+            'item_text_col', [
+                'label' => __( 'Item Text Color', 'hostza-companion' ),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .prising_area .single_prising p.prising_text, .prising_area .single_prising .prise' => 'color: {{VALUE}};',
+                ],
+            ]
+        );
+        $this->add_control(
+            'item_btn_line_text_col', [
+                'label' => __( 'Button Line & Text Color', 'hostza-companion' ),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .prising_area .single_prising .boxed_btn_green2' => 'color: {{VALUE}}; border-color: {{VALUE}};',
+                ],
+            ]
+        );
+        $this->add_control(
+            'item_btn_hover_col', [
+                'label' => __( 'Button Hover BG Color', 'hostza-companion' ),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .prising_area .single_prising .boxed_btn_green2:hover' => 'color: #fff !important; background: {{VALUE}}; border-color: {{VALUE}};',
                 ],
             ]
         );
@@ -285,6 +320,8 @@ class Hostza_Prising_Area extends Widget_Base {
             <div class="row">
                 <?php 
                 if( is_array( $prising_areas ) && count( $prising_areas ) > 0 ) {
+                    $icon_array = ['blue', 'lite_blue', 'pink', 'yellow'];
+                    $i = 0;
                     foreach( $prising_areas as $item ) {
                         $item_icon   = ( !empty( $item['item_icon'] ) ) ? esc_attr($item['item_icon']) : '';
                         $item_title  = ( !empty( $item['item_title'] ) ) ? esc_html($item['item_title']) : '';
@@ -293,10 +330,12 @@ class Hostza_Prising_Area extends Widget_Base {
                         $price_val   = ( !empty( $item['price_val'] ) ) ? esc_html($item['price_val']) : '';
                         $btn_label   = ( !empty( $item['btn_label'] ) ) ? esc_html($item['btn_label']) : '';
                         $btn_url     = ( !empty( $item['btn_url']['url'] ) ) ? esc_url($item['btn_url']['url']) : '';
+                        $icon = $icon_array[$i];
+                        $i++;
                         ?>
                         <div class="col-xl-3 col-md-6 col-lg-6">
                             <div class="single_prising">
-                                <div class="prising_icon">
+                                <div class="prising_icon <?=$icon?>">
                                     <?php
                                         if ( $item_icon ) { 
                                             echo "<i class='{$item_icon}'></i>";

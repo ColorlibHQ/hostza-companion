@@ -397,15 +397,13 @@ if ( !class_exists( 'Hostza_El_Widgets' ) ) {
             require_once HOSTZA_COMPANION_EW_DIR_PATH . 'widgets/support-section.php';
             require_once HOSTZA_COMPANION_EW_DIR_PATH . 'widgets/data-centers.php';
             require_once HOSTZA_COMPANION_EW_DIR_PATH . 'widgets/faq-section.php';
+            require_once HOSTZA_COMPANION_EW_DIR_PATH . 'widgets/faq-tab-item.php';
             require_once HOSTZA_COMPANION_EW_DIR_PATH . 'widgets/blog.php';
             require_once HOSTZA_COMPANION_EW_DIR_PATH . 'widgets/lets-launch.php';
-            // require_once HOSTZA_COMPANION_EW_DIR_PATH . 'widgets/services.php';
-            // require_once HOSTZA_COMPANION_EW_DIR_PATH . 'widgets/gallery.php';
-            // require_once HOSTZA_COMPANION_EW_DIR_PATH . 'widgets/video-section.php';
-            // require_once HOSTZA_COMPANION_EW_DIR_PATH . 'widgets/team-members.php';
-            // require_once HOSTZA_COMPANION_EW_DIR_PATH . 'widgets/home-contact.php';
-            // require_once HOSTZA_COMPANION_EW_DIR_PATH . 'widgets/projects.php';
-            // require_once HOSTZA_COMPANION_EW_DIR_PATH . 'widgets/review-section.php';
+            require_once HOSTZA_COMPANION_EW_DIR_PATH . 'widgets/price-table.php';
+            require_once HOSTZA_COMPANION_EW_DIR_PATH . 'widgets/single-pricing-table.php';
+            require_once HOSTZA_COMPANION_EW_DIR_PATH . 'widgets/simple-contact-section.php';
+            require_once HOSTZA_COMPANION_EW_DIR_PATH . 'widgets/statistics.php';
             require_once HOSTZA_COMPANION_EW_DIR_PATH . 'widgets/contact.php';
         }
 
@@ -430,15 +428,13 @@ if ( !class_exists( 'Hostza_El_Widgets' ) ) {
             \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Hostzaelementor\Widgets\Hostza_Support_Section() ); 
             \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Hostzaelementor\Widgets\Hostza_Data_Centers() ); 
             \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Hostzaelementor\Widgets\Hostza_Faq_Section() ); 
+            \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Hostzaelementor\Widgets\Hostza_Faq_Tab_Item() ); 
             \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Hostzaelementor\Widgets\Hostza_Blog() ); 
             \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Hostzaelementor\Widgets\Hostza_Lets_Launch() ); 
-            // \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Hostzaelementor\Widgets\Hostza_Services() ); 
-            // \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Hostzaelementor\Widgets\Hostza_Gallery() ); 
-            // \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Hostzaelementor\Widgets\Hostza_Video_Section() ); 
-            // \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Hostzaelementor\Widgets\Hostza_Team_Members() ); 
-            // \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Hostzaelementor\Widgets\Hostza_Home_Contact() ); 
-            // \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Hostzaelementor\Widgets\Hostza_Projects() ); 
-            // \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Hostzaelementor\Widgets\Hostza_Review_Contents() ); 
+            \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Hostzaelementor\Widgets\Hostza_Price_Table() ); 
+            \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Hostzaelementor\Widgets\Hostza_Single_Pricing_Item() ); 
+            \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Hostzaelementor\Widgets\Hostza_Simple_Contact_Section() ); 
+            \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Hostzaelementor\Widgets\Hostza_Statistics() ); 
             \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Hostzaelementor\Widgets\Hostza_Contact() ); 
         }
 

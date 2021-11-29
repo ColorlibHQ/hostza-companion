@@ -75,6 +75,13 @@ class Hostza_Hero extends Widget_Base {
             ]
         );
 		$this->add_control(
+            'action_page', [
+                'label' => __( 'Action Page', 'hostza-companion' ),
+                'type' => Controls_Manager::URL,
+                'label_block' => true,
+            ]
+        );
+		$this->add_control(
             'btn_label', [
                 'label' => __( 'Button Label', 'hostza-companion' ),
                 'type' => Controls_Manager::TEXT,
@@ -98,15 +105,6 @@ class Hostza_Hero extends Widget_Base {
 			]
 		);
 		$this->add_control(
-			'big_title_col', [
-				'label' => __( 'Big Title Color', 'hostza-companion' ),
-				'type' => Controls_Manager::COLOR,
-				'selectors' => [
-					'{{WRAPPER}} .slider_area .single_slider .slider_text h3' => 'color: {{VALUE}};',
-				],
-			]
-		);
-		$this->add_control(
 			'sub_title_col', [
 				'label' => __( 'Sub Title Color', 'hostza-companion' ),
 				'type' => Controls_Manager::COLOR,
@@ -116,29 +114,20 @@ class Hostza_Hero extends Widget_Base {
 			]
         );
 		$this->add_control(
-			'btn_border-text_col', [
-				'label' => __( 'Button Border & Text Color', 'hostza-companion' ),
+			'big_title_col', [
+				'label' => __( 'Big Title Color', 'hostza-companion' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .slider_area .single_slider .slider_text .boxed-btn2' => 'color: {{VALUE}};border-color: {{VALUE}};',
+					'{{WRAPPER}} .slider_area .single_slider .slider_text h3' => 'color: {{VALUE}};',
 				],
 			]
 		);
 		$this->add_control(
-			'btn_bg_hov_col', [
-				'label' => __( 'Button Hover Bg & Border Color', 'hostza-companion' ),
+			'btn_bg_col', [
+				'label' => __( 'Button Bg Color', 'hostza-companion' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .slider_area .single_slider .slider_text .boxed-btn2:hover' => 'background: {{VALUE}};border-color: {{VALUE}};',
-				],
-			]
-		);
-		$this->add_control(
-			'btn_bg_hov_txt_col', [
-				'label' => __( 'Button Hover Text Color', 'hostza-companion' ),
-				'type' => Controls_Manager::COLOR,
-				'selectors' => [
-					'{{WRAPPER}} .slider_area .single_slider .slider_text .boxed-btn2:hover' => 'color: {{VALUE}} !important;',
+					'{{WRAPPER}} .slider_area .find_dowmain .find_dowmain_form button' => 'background: {{VALUE}};',
 				],
 			]
 		);
@@ -151,6 +140,7 @@ class Hostza_Hero extends Widget_Base {
     $banner_img = !empty( $settings['banner_img']['url'] ) ? $settings['banner_img']['url'] : ''; 
     $sub_title  = !empty( $settings['sub_title'] ) ? esc_html($settings['sub_title']) : '';     
     $big_title  = !empty( $settings['big_title'] ) ? wp_kses_post(nl2br($settings['big_title'])) : '';
+    $action_page  = !empty( $settings['action_page'] ) ? esc_url($settings['action_page']['url']) : '#';
     $btn_label  = !empty( $settings['btn_label'] ) ? esc_html($settings['btn_label']) : '';
 	?>
 	
@@ -170,7 +160,7 @@ class Hostza_Hero extends Widget_Base {
                                 }
                             ?>
                             <div class="find_dowmain">
-                                <form action="#" class="find_dowmain_form">
+                                <form action="<?php echo $action_page?>" class="find_dowmain_form">
 									<input type="text" placeholder="<?php _e('Find your domain', 'hostza-companion')?>">
 									<?php
 										if ( $btn_label ) {

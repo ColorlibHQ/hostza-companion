@@ -32,10 +32,12 @@ add_filter( 'pt-ocdi/import_files', 'hostza_import_files' );
 function hostza_after_import_setup() {
 	// Assign menus to their locations.
 	$main_menu   		= get_term_by( 'name', 'Main Menu', 'nav_menu' );
+	$service_menu   	= get_term_by( 'name', 'Service', 'nav_menu' );
 	$navigation_menu   	= get_term_by( 'name', 'Navigation', 'nav_menu' );
 
 	set_theme_mod( 'nav_menu_locations', array(
 			'primary-menu'  	=> $main_menu->term_id,
+			'service-menu'  	=> $service_menu->term_id,
 			'navigation-menu'  	=> $navigation_menu->term_id,
 		)
 	);

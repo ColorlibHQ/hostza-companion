@@ -33,7 +33,7 @@ class Hostza_Core_Feature_Tab_Items extends Widget_Base {
 	}
 
 	public function get_icon() {
-		return 'eicon-settings';
+		return 'eicon-info-box';
 	}
 
 	public function get_categories() {

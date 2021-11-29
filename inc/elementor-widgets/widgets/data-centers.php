@@ -34,7 +34,7 @@ class Hostza_Data_Centers extends Widget_Base {
 	}
 
 	public function get_icon() {
-		return 'eicon-play-o';
+		return 'eicon-globe';
 	}
 
 	public function get_categories() {
@@ -187,50 +187,16 @@ class Hostza_Data_Centers extends Widget_Base {
 			]
         );
 
-        // $this->add_responsive_control(
-        //     'first_marker_position',
-        //     [
-        //         'label' => __( 'First Marker Position', 'hostza-companion' ),
-        //         'type' => Controls_Manager::DIMENSIONS,
-        //         'size_units' => [ 'px', '%', 'em' ],
-        //         'selectors' => [
-        //             '{{WRAPPER}} .data_center_area .location .pulse_group span:first-child' => 'top: {{TOP}}{{UNIT}}; right: {{RIGHT}}{{UNIT}}; bottom: {{BOTTOM}}{{UNIT}}; left: {{LEFT}}{{UNIT}};',
-        //         ],
-        //     ]
-        // );
-        // $this->add_responsive_control(
-        //     'second_marker_position',
-        //     [
-        //         'label' => __( 'Second Marker Position', 'hostza-companion' ),
-        //         'type' => Controls_Manager::DIMENSIONS,
-        //         'size_units' => [ 'px', '%', 'em' ],
-        //         'selectors' => [
-        //             '{{WRAPPER}} .data_center_area .location .pulse_group span:nth-child(2)' => 'top: {{TOP}}{{UNIT}}; right: {{RIGHT}}{{UNIT}}; bottom: {{BOTTOM}}{{UNIT}}; left: {{LEFT}}{{UNIT}};',
-        //         ],
-        //     ]
-        // );
-        // $this->add_responsive_control(
-        //     'third_marker_position',
-        //     [
-        //         'label' => __( 'Third Marker Position', 'hostza-companion' ),
-        //         'type' => Controls_Manager::DIMENSIONS,
-        //         'size_units' => [ 'px', '%', 'em' ],
-        //         'selectors' => [
-        //             '{{WRAPPER}} .data_center_area .location .pulse_group span:nth-child(3)' => 'top: {{TOP}}{{UNIT}}; right: {{RIGHT}}{{UNIT}}; bottom: {{BOTTOM}}{{UNIT}}; left: {{LEFT}}{{UNIT}};',
-        //         ],
-        //     ]
-        // );
-        // $this->add_responsive_control(
-        //     'fourth_marker_position',
-        //     [
-        //         'label' => __( 'Fourth Marker Position', 'hostza-companion' ),
-        //         'type' => Controls_Manager::DIMENSIONS,
-        //         'size_units' => [ 'px', '%', 'em' ],
-        //         'selectors' => [
-        //             '{{WRAPPER}} .data_center_area .location .pulse_group span:last-child' => 'top: {{TOP}}{{UNIT}}; right: {{RIGHT}}{{UNIT}}; bottom: {{BOTTOM}}{{UNIT}}; left: {{LEFT}}{{UNIT}};',
-        //         ],
-        //     ]
-        // );
+        $this->add_control(
+			'loc_pointer_col', [
+				'label' => __( 'Location Pointer Color', 'hostza-companion' ),
+				'type' => Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .data_center_area .location .pulse_group span' => 'background: {{VALUE}};',
+				],
+			]
+        );
+
         $this->end_controls_section();
 
 	}

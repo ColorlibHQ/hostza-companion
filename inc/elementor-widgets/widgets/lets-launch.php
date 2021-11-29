@@ -30,11 +30,11 @@ class Hostza_Lets_Launch extends Widget_Base {
 	}
 
 	public function get_title() {
-		return __( 'Lets Launch', 'hostza-companion' );
+		return __( 'Live Chat', 'hostza-companion' );
 	}
 
 	public function get_icon() {
-		return 'eicon-play-o';
+		return 'eicon-instagram-comments';
 	}
 
 	public function get_categories() {
@@ -139,49 +139,61 @@ class Hostza_Lets_Launch extends Widget_Base {
 				'label' => __( 'Big Title Color', 'hostza-companion' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .home_contact h2' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .lets_launch .launch_text h3' => 'color: {{VALUE}};',
 				],
 			]
         );
 
         $this->add_control(
-			'sub_title_col', [
-				'label' => __( 'Sub title Color', 'hostza-companion' ),
+			'text_col', [
+				'label' => __( 'Text Color', 'hostza-companion' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .home_contact p' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .lets_launch .launch_text p' => 'color: {{VALUE}};',
 				],
 			]
         );
 
         $this->add_control(
-			'btn_bg_col', [
-				'label' => __( 'Button BG Color', 'hostza-companion' ),
+			'btn1_bg_col', [
+				'label' => __( 'Button 1 Color', 'hostza-companion' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .home_contact .btn_1' => 'background: {{VALUE}};',
+					'{{WRAPPER}} .lets_launch .launch_text .chat .boxed_btn_green' => 'background: {{VALUE}};',
+					'{{WRAPPER}} .lets_launch .launch_text .chat .boxed_btn_green:hover' => 'background: transparent; border-color: {{VALUE}}; color: {{VALUE}} !important;',
+				],
+			]
+        );
+        $this->add_control(
+			'btn1_hover_col', [
+				'label' => __( 'Button 1 Hover Color', 'hostza-companion' ),
+				'type' => Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .lets_launch .launch_text .chat .boxed_btn_green:hover' => 'background: transparent; border-color: {{VALUE}}; color: {{VALUE}} !important;',
 				],
 			]
         );
 
         $this->add_control(
-			'btn_hov_bg_col', [
-				'label' => __( 'Button Hover Bg Color', 'hostza-companion' ),
+			'btn2_bg_col', [
+				'label' => __( 'Button 2 Color', 'hostza-companion' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .home_contact .btn_1:hover' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .lets_launch .launch_text .chat .boxed_btn_green2' => 'color: {{VALUE}} !important; border-color: {{VALUE}} !important',
+					'{{WRAPPER}} .lets_launch .launch_text .chat .boxed_btn_green2:hover' => 'border-color: {{VALUE}} !important; background: {{VALUE}}; color: #fff !important',
 				],
 			]
         );
         $this->add_control(
-			'bg_overlay_col', [
-				'label' => __( 'Bg Overlay Color', 'hostza-companion' ),
+			'btn2_hover_col', [
+				'label' => __( 'Button 2 Hover Color', 'hostza-companion' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .home_contact:after' => 'background: {{VALUE}};',
+					'{{WRAPPER}} .lets_launch .launch_text .chat .boxed_btn_green2:hover' => 'border-color: {{VALUE}} !important; background: {{VALUE}}; color: #fff !important',
 				],
 			]
         );
+
         $this->end_controls_section();
 
 	}

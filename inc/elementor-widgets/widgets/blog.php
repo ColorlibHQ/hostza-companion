@@ -131,88 +131,50 @@ class Hostza_Blog extends Widget_Base {
             'color_secttitle', [
                 'label'     => __( 'Section Title Color', 'hostza-companion' ),
                 'type'      => Controls_Manager::COLOR,
-                'default'   => '#30383b',
                 'selectors' => [
-                    '{{WRAPPER}} .blog_part .section_tittle h2' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .latest_new_area .section_title h3' => 'color: {{VALUE}};',
                 ],
             ]
         );
         $this->add_control(
             'color_sec_sub_title', [
-                'label'     => __( 'Section Sub Title Color', 'hostza-companion' ),
+                'label'     => __( 'Sub Title Color', 'hostza-companion' ),
                 'type'      => Controls_Manager::COLOR,
-                'default'   => '#777',
                 'selectors' => [
-                    '{{WRAPPER}} .blog_part .section_tittle p' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .latest_new_area .section_title p' => 'color: {{VALUE}};',
                 ],
             ]
         );
-
         $this->add_control(
-            'blog_styles_sep',
-            [
-                'label'     => __( 'Blog Styles', 'hostza-companion' ),
-                'type'      => Controls_Manager::HEADING,
-                'separator' => 'before',
-            ]
-        );
-
-        $this->add_control(
-            'item_border_color', [
-                'label'     => __( 'Item Border Color', 'hostza-companion' ),
+            'color_blog_cat', [
+                'label'     => __( 'Blog Category Color', 'hostza-companion' ),
                 'type'      => Controls_Manager::COLOR,
-                'default'   => '#e3e6ea',
                 'selectors' => [
-                    '{{WRAPPER}} .service_part .single_service_part' => 'border-color: {{VALUE}};',
+                    '{{WRAPPER}} .latest_new_area .single_news .news_content .news_meta a' => 'color: {{VALUE}};',
                 ],
             ]
         );
-
         $this->add_control(
-            'post_excerpt_color', [
-                'label'     => __( 'Post Excerpt Color', 'hostza-companion' ),
+            'color_blog_title', [
+                'label'     => __( 'Blog Title Color', 'hostza-companion' ),
                 'type'      => Controls_Manager::COLOR,
-                'default'   => '#777',
                 'selectors' => [
-                    '{{WRAPPER}} .blog_part .single_service_part .single_service_text p:not(:first-child)' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .latest_new_area .single_news .news_content h3 a' => 'color: {{VALUE}};',
+                ],
+            ]
+        );
+        $this->add_control(
+            'color_blog_title_hover', [
+                'label'     => __( 'Blog Title Hover Color', 'hostza-companion' ),
+                'type'      => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .latest_new_area .single_news .news_content h3 a:hover' => 'color: {{VALUE}};',
                 ],
             ]
         );
 
         $this->end_controls_section();
 
-
-        /**
-         * Style Tab
-         * ------------------------------ Background Style ------------------------------
-         *
-         */
-        $this->start_controls_section(
-            'section_bg', [
-                'label' => __( 'Style Background', 'hostza-companion' ),
-                'tab' => Controls_Manager::TAB_STYLE,
-            ]
-        );
-        
-        $this->add_control(
-            'section_bgheading',
-            [
-                'label'     => __( 'Background Settings', 'hostza-companion' ),
-                'type'      => Controls_Manager::HEADING,
-                'separator' => 'before',
-            ]
-        );
-        $this->add_group_control(
-            Group_Control_Background::get_type(),
-            [
-                'name' => 'sectionbg',
-                'label' => __( 'Background', 'hostza-companion' ),
-                'types' => [ 'classic' ],
-                'selector' => '{{WRAPPER}} .blog_part',
-            ]
-        );
-
-        $this->end_controls_section();
 	}
 
 	protected function render() {
