@@ -400,23 +400,23 @@ class Hostza_Projects extends Widget_Base {
                 'options' => [
 					'1' => [
                         'title' => __( '1', 'hostza-companion' ),
-                        'icon'  => 'fa fa-star'
+                        'icon'  => 'fa-solid fa-star'
                     ],
 					'2' => [
                         'title' => __( '2', 'hostza-companion' ),
-                        'icon'  => 'fa fa-star'
+                        'icon'  => 'fa-solid fa-star'
                     ],
 					'3' => [
                         'title' => __( '3', 'hostza-companion' ),
-                        'icon'  => 'fa fa-star'
+                        'icon'  => 'fa-solid fa-star'
                     ],
 					'4' => [
                         'title' => __( '4', 'hostza-companion' ),
-                        'icon'  => 'fa fa-star'
+                        'icon'  => 'fa-solid fa-star'
                     ],
 					'5' => [
                         'title' => __( '5', 'hostza-companion' ),
-                        'icon'  => 'fa fa-star'
+                        'icon'  => 'fa-solid fa-star'
                     ],
 				],
                 // 'default' => __( '5', 'hostza-companion' ),
@@ -692,7 +692,7 @@ class Hostza_Projects extends Widget_Base {
                                     <?php
                                         for ( $i = 0; $i < 5; $i++ ) {
                                             if ( $project_rating >= $i ) {
-                                                echo '<i class="fa fa-star"></i>';
+                                                echo '<i class="fa-solid fa-star"></i>';
                                             }
                                         }
                                     ?>

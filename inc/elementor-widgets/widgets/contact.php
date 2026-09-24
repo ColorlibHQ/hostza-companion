@@ -82,17 +82,17 @@ class Hostza_Contact extends Widget_Base {
                     [
                         'label' => esc_html__( 'Buttonwood, California.', 'hostza-companion' ),
                         'desc'  => esc_html__( 'Rosemead, CA 91770', 'hostza-companion' ),
-                        'icon'  => 'fa fa-home',
+                        'icon'  => 'fa-solid fa-home',
                     ],
                     [
                         'label' => esc_html__( '00 (440) 9865 562', 'hostza-companion' ),
                         'desc'  => esc_html__( 'Mon to Fri 9am to 6pm', 'hostza-companion' ),
-                        'icon'  => 'fa fa-tablet',
+                        'icon'  => 'fa-solid fa-tablet',
                     ],
                     [
                         'label' => esc_html__( 'support@colorlib.com', 'hostza-companion' ),
                         'desc'  => esc_html__( 'Send us your query anytime!', 'hostza-companion' ),
-                        'icon'  => 'fa fa-envelope-o',
+                        'icon'  => 'fa-regular fa-envelope',
                     ],                    
                 ]
             ]

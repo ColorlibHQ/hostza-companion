@@ -240,7 +240,7 @@ class Hostza_Data_Centers extends Widget_Base {
                                     <span style="<?=$top_position.$left_position?>">
                                         <div class="address_on_hover d-none d-lg-block">
                                             <div class="address_inner">
-                                                <i class="fa fa-map-marker"></i>
+                                                <i class="fa-solid fa-map-marker"></i>
                                                 <?php 
                                                     if ( $item_title ) { 
                                                         echo "<h3>{$item_title}</h3>";
