@@ -40,8 +40,7 @@ function hostza_section_heading( $title = '', $subtitle = '' ) {
 add_action( 'wp_enqueue_scripts', 'hostza_companion_frontend_scripts', 99 );
 function hostza_companion_frontend_scripts() {
 
-	wp_enqueue_script( 'hostza-companion-script', plugins_url( '../js/loadmore-ajax.js', __FILE__ ), array( 'jquery' ), '1.0', true );
-	wp_enqueue_script( 'hostza-common-js', plugins_url( '../js/common.js', __FILE__ ), array( 'jquery' ), '1.0-s1', true );
+	wp_enqueue_script( 'hostza-companion-script', plugins_url( '../js/loadmore-ajax.js', __FILE__ ), array( 'masonry', 'hostza-ui-js' ), '1.0-s2', true );
 
 }
 // 
